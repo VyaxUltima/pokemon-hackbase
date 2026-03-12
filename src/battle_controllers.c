@@ -3042,6 +3042,11 @@ void AnimateMonAfterPokeBallFail(enum BattlerId battler)
     TryShinyAnimation(gBattlerTarget, GetBattlerMon(gBattlerTarget));
 }
 
+void SetLastPokemonMusic(void)
+{
+    TryLastMonBGM();
+}
+
 static void AnimateMonAfterKnockout(enum BattlerId battler)
 {
     if (B_ANIMATE_MON_AFTER_KO == FALSE)

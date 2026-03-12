@@ -454,6 +454,9 @@ void LinkPartnerBufferExecCompleted(enum BattlerId battler);
 
 void TrySetBattlerShadowSpriteCallback(enum BattlerId battler);
 
+// Change music to mus_last_pokemon
+void SetLastPokemonMusic(void);
+
 void AnimateMonAfterPokeBallFail(enum BattlerId battler);
 void TryShinyAnimAfterMonAnim(enum BattlerId battler);
 void WaitForMonAnimAfterLoad(enum BattlerId battler);

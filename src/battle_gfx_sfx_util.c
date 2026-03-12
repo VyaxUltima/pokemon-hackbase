@@ -1460,6 +1460,13 @@ bool32 ShouldPlayNormalMonCry(struct Pokemon *mon)
     return TRUE;
 }
 
+void TryLastMonBGM(void)
+{
+    ResetMapMusic();
+    m4aMPlayAllStop();
+    PlayBGM(MUS_VS_FRONTIER_BRAIN);
+}
+
 void DecompressGhostFrontPic(u32 battler)
 {
     u16 palOffset;

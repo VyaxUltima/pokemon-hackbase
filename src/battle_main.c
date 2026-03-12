@@ -4687,6 +4687,16 @@ static void HandleTurnActionSelectionState(void)
 
         gBattleMainFunc = SetActionsAndBattlersTurnOrder;
 
+        // If FLAG_CHANGE_BATTLE_BGM is set, clear it and change the battle music.
+        // This implementation keeps this strictly to occuring on turn 1, and won't affect later battles unless set again.
+        // You may want custom trainer music handling in GetBattleBGM() when using this!
+        if (FlagGet(FLAG_CHANGE_BATTLE_BGM)) {
+            FlagClear(FLAG_CHANGE_BATTLE_BGM);
+            ResetMapMusic();
+            m4aMPlayAllStop();
+            PlayBGM(MUS_RG_VS_DEOXYS);
+        }
+
         if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
         {
             for (enum BattlerId battler = 0; battler < gBattlersCount; battler++)

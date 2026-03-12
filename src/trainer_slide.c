@@ -55,11 +55,19 @@ static bool32 ShouldRunTrainerSlideLastLowHp(u32 firstId, u32 lastId, enum Battl
 static void SetTrainerSlideParameters(enum BattlerId battler, u32* firstId, u32* lastId, u32* trainerId, u32* retValue);
 static bool32 IsSlideInitalizedOrPlayed(enum BattlerId battler, enum TrainerSlideType slideId);
 
+const u8 gText_ThatsTheWay[] = _("Zaoshang hao zhongguo,\nxianzai wo yo BING CHILLING!{PAUSE_UNTIL_PRESS}");
+
 // Partner trainers must be added as TRAINER_PARTNER(PARTNER_XXXX)
 static const u8* const sTrainerSlides[DIFFICULTY_COUNT][TRAINER_PARTNER(PARTNER_COUNT)][TRAINER_SLIDE_COUNT] =
 {
     [DIFFICULTY_NORMAL] =
     {
+        // leaving this here as an example
+        [TRAINER_ROXANNE_1] =
+        {
+            //[TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("That's the way, Gallade! Go!{PAUSE_UNTIL_PRESS}"), // find the id for the slide to be used.
+            [TRAINER_SLIDE_LAST_SWITCHIN] = gText_ThatsTheWay, // You can use globals or COMPOUND_STRING to define text here.
+        }
     },
 };
 

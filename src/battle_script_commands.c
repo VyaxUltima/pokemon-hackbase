@@ -14411,6 +14411,7 @@ void BS_TryTrainerSlideMsgLastOn(void)
         default:
             break;
         }
+        SetLastPokemonMusic();
     }
     else
     {
