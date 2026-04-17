@@ -546,6 +546,36 @@
 #define PH_NURSE_HELD               608
 #define PH_NURSE_SOLO               609
 
+// This section onward is custom music
+#define MUS_PRESTO_2011             610
+#define MUS_MARTHS_TRIAL            611
+#define MUS_FF4_BATTLE              612
+#define MUS_FF4_ARCHFIENDS          613
+#define MUS_THRACIA_MAP             614
+#define MUS_ENDLESS_BATTLE          615
+#define MUS_NORTHWALL               616
+#define MUS_DEATH_ODYSSEY           617
+#define MUS_ST_T_HAWK               618
+#define MUS_AGUSTRIA                619
+#define MUS_VERDANE_ARMY            620
+#define MUS_AMALA_NETWORK           621
+#define MUS_P2EP_BATTLE             622
+#define MUS_STIMULATION             623
+#define MUS_PINCHER_ADMIN           624
+#define MUS_RENBOW_ISLAND           625
+#define MUS_FE3_ADVANCE             626
+#define MUS_FE3_LIBERATION          627
+#define MUS_LAYUDA_ISLAND           628
+#define MUS_VS_PHILEMON             629
+#define MUS_FE3_VICTORY_NEAR        630
+#define MUS_TRUE_LOVE_MAKIN         631
+#define MUS_MYSTIC_QUEST_BATTLE     632
+#define MUS_LUFIA2_BATTLE           633
+#define MUS_P2IS_BOSS               634
+#define MUS_REVOLVER_THEME          635
+#define MUS_YAGAMI_TEAM             636
+#define END_MUS_EXT                 MUS_YAGAMI_TEAM
+
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 
 #define MUS_NONE                    0xFFFF

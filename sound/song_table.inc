@@ -616,6 +616,33 @@ gSongTable::
 	song ph_nurse_blend, MUSIC_PLAYER_SE2, 2
 	song ph_nurse_held, MUSIC_PLAYER_SE2, 2
 	song ph_nurse_solo, MUSIC_PLAYER_SE2, 2
+	song mus_presto_2011, MUSIC_PLAYER_BGM, 0
+	song mus_marths_trial, MUSIC_PLAYER_BGM, 0
+	song mus_ff4_battle, MUSIC_PLAYER_BGM, 0
+	song mus_ff4_archfiends, MUSIC_PLAYER_BGM, 0
+	song mus_thracia_map, MUSIC_PLAYER_BGM, 0
+	song mus_endless_battle, MUSIC_PLAYER_BGM, 0
+	song mus_northwall, MUSIC_PLAYER_BGM, 0
+	song mus_death_odyssey, MUSIC_PLAYER_BGM, 0
+	song mus_st_t_hawk, MUSIC_PLAYER_BGM, 0
+	song mus_agustria, MUSIC_PLAYER_BGM, 0
+	song mus_verdane_army, MUSIC_PLAYER_BGM, 0
+	song mus_amala_network, MUSIC_PLAYER_BGM, 0
+	song mus_p2ep_battle, MUSIC_PLAYER_BGM, 0
+	song mus_stimulation, MUSIC_PLAYER_BGM, 0
+	song mus_pincher_admin, MUSIC_PLAYER_BGM, 0
+	song mus_renbow_island, MUSIC_PLAYER_BGM, 0
+	song mus_fe3_advance, MUSIC_PLAYER_BGM, 0
+	song mus_fe3_liberation, MUSIC_PLAYER_BGM, 0
+	song mus_layuda_island, MUSIC_PLAYER_BGM, 0
+	song mus_vs_philemon, MUSIC_PLAYER_BGM, 0
+	song mus_fe3_victory_near, MUSIC_PLAYER_BGM, 0
+	song mus_true_love_makin, MUSIC_PLAYER_BGM, 0
+	song mus_mystic_quest_battle, MUSIC_PLAYER_BGM, 0
+	song mus_lufia2_battle, MUSIC_PLAYER_BGM, 0
+	song mus_p2is_boss, MUSIC_PLAYER_BGM, 0
+	song mus_revolver_theme, MUSIC_PLAYER_BGM, 0
+	song mus_yagami_team, MUSIC_PLAYER_BGM, 0
 
 	.align 2
 dummy_song_header:

@@ -3897,7 +3897,7 @@ static void DebugAction_PCBag_ClearBoxes(u8 taskId)
 
 // *******************************
 // Actions Sound
-static const u8 *const sBGMNames[END_MUS - START_MUS + 1];
+static const u8 *const sBGMNames[END_MUS_EXT - START_MUS + 1];
 static const u8 *const sSENames[END_SE + 1];
 
 #define tCurrentSong  data[5]
@@ -4002,7 +4002,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     if (JOY_NEW(DPAD_ANY))
     {
         const u8 *bgmName;
-        Debug_HandleInput_Numeric(taskId, START_MUS, END_MUS, DEBUG_NUMBER_DIGITS_ITEMS);
+        Debug_HandleInput_Numeric(taskId, START_MUS, END_MUS_EXT, DEBUG_NUMBER_DIGITS_ITEMS);
 
         StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].tDigit]);
         bgmName = sBGMNames[gTasks[taskId].tInput - START_MUS];
@@ -4282,7 +4282,34 @@ static void DebugAction_DestroyFollowerNPC(u8 taskId)
     X(MUS_RG_ENCOUNTER_DEOXYS)      \
     X(MUS_RG_TRAINER_TOWER)         \
     X(MUS_RG_SLOW_PALLET)           \
-    X(MUS_RG_TEACHY_TV_MENU)
+    X(MUS_RG_TEACHY_TV_MENU)        \
+    X(MUS_PRESTO_2011)              \
+    X(MUS_MARTHS_TRIAL)             \
+    X(MUS_FF4_BATTLE)               \
+    X(MUS_FF4_ARCHFIENDS)           \
+    X(MUS_THRACIA_MAP)              \
+    X(MUS_ENDLESS_BATTLE)           \
+    X(MUS_NORTHWALL)                \
+    X(MUS_DEATH_ODYSSEY)            \
+    X(MUS_ST_T_HAWK)                \
+    X(MUS_AGUSTRIA)                 \
+    X(MUS_VERDANE_ARMY)             \
+    X(MUS_AMALA_NETWORK)            \
+    X(MUS_P2EP_BATTLE)              \
+    X(MUS_STIMULATION)              \
+    X(MUS_PINCHER_ADMIN)            \
+    X(MUS_RENBOW_ISLAND)            \
+    X(MUS_FE3_ADVANCE)              \
+    X(MUS_FE3_LIBERATION)           \
+    X(MUS_LAYUDA_ISLAND)            \
+    X(MUS_VS_PHILEMON)              \
+    X(MUS_FE3_VICTORY_NEAR)         \
+    X(MUS_TRUE_LOVE_MAKIN)          \
+    X(MUS_MYSTIC_QUEST_BATTLE)      \
+    X(MUS_LUFIA2_BATTLE)            \
+    X(MUS_P2IS_BOSS)                \
+    X(MUS_REVOLVER_THEME)           \
+    X(MUS_YAGAMI_TEAM) 
 
 #define SOUND_LIST_SE               \
     X(SE_USE_ITEM)                  \
@@ -4561,7 +4588,7 @@ SOUND_LIST_BGM
 #undef X
 
 #define X(songId) [songId - START_MUS] = sBGMName_##songId,
-static const u8 *const sBGMNames[END_MUS - START_MUS + 1] =
+static const u8 *const sBGMNames[END_MUS_EXT - START_MUS + 1] =
 {
 SOUND_LIST_BGM
 };

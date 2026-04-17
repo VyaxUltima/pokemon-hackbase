@@ -201,3 +201,7 @@
 .include "sound/voicegroups/rg_sevii_45.inc"
 .include "sound/voicegroups/rg_sevii_67.inc"
 .include "sound/voicegroups/drumsets/rg_credits.inc"
+
+@ Custom voicegroups
+.include "sound/voicegroups/hack_custom_1.inc"
+.include "sound/voicegroups/drumsets/custom_drums_1.inc"

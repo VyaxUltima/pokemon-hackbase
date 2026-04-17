@@ -386,6 +386,42 @@ DirectSoundWaveData_unknown_16::
 DirectSoundWaveData_unknown_17::
 	.incbin "sound/direct_sound_samples/unknown_17.bin"
 
+	.align 2
+DirectSoundWaveData_yamaha_sy22_dist_guitar::
+	.incbin "sound/direct_sound_samples/yamaha_sy22_dist_guitar.bin"
+
+	.align 2
+DirectSoundWaveData_sc88_overdriven_guitar::
+	.incbin "sound/direct_sound_samples/sc88_overdriven_guitar.bin"
+
+	.align 2
+DirectSoundWaveData_ensoniq_zr76_hit::
+	.incbin "sound/direct_sound_samples/ensoniq_zr76_hit.bin"
+
+	.align 2
+DirectSoundWaveData_korg_n1r_hit::
+	.incbin "sound/direct_sound_samples/korg_n1r_hit.bin"
+
+	.align 2
+DirectSoundWaveData_korg_ns5r_sawtooth_lead::
+	.incbin "sound/direct_sound_samples/korg_ns5r_sawtooth_lead.bin"
+
+	.align 2
+DirectSoundWaveData_yamaha_mu90r_guitar::
+	.incbin "sound/direct_sound_samples/yamaha_mu90r_guitar.bin"
+
+	.align 2
+DirectSoundWaveData_alesis_s4_brass_section::
+	.incbin "sound/direct_sound_samples/alesis_s4_brass_section.bin"
+
+	.align 2
+DirectSoundWaveData_roland_r8_guiro::
+	.incbin "sound/direct_sound_samples/roland_r8_guiro.bin"
+
+	.align 2
+DirectSoundWaveData_korg_dw8000_pipe_organ::
+	.incbin "sound/direct_sound_samples/korg_dw8000_pipe_organ.bin"
+
 .if P_CRIES_ENABLED == TRUE
 .if P_FAMILY_BULBASAUR == TRUE
 	.align 2
