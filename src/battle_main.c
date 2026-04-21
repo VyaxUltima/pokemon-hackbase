@@ -4681,13 +4681,13 @@ static void HandleTurnActionSelectionState(void)
         gBattleMainFunc = SetActionsAndBattlersTurnOrder;
 
         // If FLAG_CHANGE_BATTLE_BGM is set, clear it and change the battle music.
-        // This implementation keeps this strictly to occuring on turn 1, and won't affect later battles unless set again.
-        // You may want custom trainer music handling in GetBattleBGM() when using this!
+        // Block below keeps this strictly to occuring on turn 1, and won't affect later battles unless the flag is set again.
+        // Current implementation of this sets the battle music to a "soft" track in pokemon.c, which is then changed down below.
         if (FlagGet(FLAG_CHANGE_BATTLE_BGM)) {
             FlagClear(FLAG_CHANGE_BATTLE_BGM);
             ResetMapMusic();
             m4aMPlayAllStop();
-            PlayBGM(MUS_RG_VS_DEOXYS);
+            PlayBGM(MUS_LUFIA2_BATTLE);
         }
 
         if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)

@@ -642,6 +642,8 @@ gSongTable::
 	song mus_lufia2_battle, MUSIC_PLAYER_BGM, 0
 	song mus_p2is_boss, MUSIC_PLAYER_BGM, 0
 	song mus_revolver_theme, MUSIC_PLAYER_BGM, 0
+	song mus_fireburg, MUSIC_PLAYER_BGM, 0
+	song mus_awaiting_combat, MUSIC_PLAYER_BGM, 0
 	song mus_yagami_team, MUSIC_PLAYER_BGM, 0
 
 	.align 2

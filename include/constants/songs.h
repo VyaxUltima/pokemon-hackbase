@@ -573,7 +573,9 @@
 #define MUS_LUFIA2_BATTLE           633
 #define MUS_P2IS_BOSS               634
 #define MUS_REVOLVER_THEME          635
-#define MUS_YAGAMI_TEAM             636
+#define MUS_FIREBURG                636
+#define MUS_AWAITING_COMBAT         637
+#define MUS_YAGAMI_TEAM             638
 #define END_MUS_EXT                 MUS_YAGAMI_TEAM
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().

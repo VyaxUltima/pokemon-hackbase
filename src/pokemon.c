@@ -5781,6 +5781,10 @@ u16 GetBattleBGM(void)
     {
         return MUS_VS_TRAINER;
     }
+    else if (FlagGet(FLAG_CHANGE_BATTLE_BGM)) // The "actual" battle music would start once turn 1 begins execution
+    {
+        return MUS_AWAITING_COMBAT;
+    }
     else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
         enum TrainerClassID trainerClass;

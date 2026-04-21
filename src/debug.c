@@ -4309,6 +4309,8 @@ static void DebugAction_DestroyFollowerNPC(u8 taskId)
     X(MUS_LUFIA2_BATTLE)            \
     X(MUS_P2IS_BOSS)                \
     X(MUS_REVOLVER_THEME)           \
+    X(MUS_FIREBURG)                 \
+    X(MUS_AWAITING_COMBAT)          \
     X(MUS_YAGAMI_TEAM) 
 
 #define SOUND_LIST_SE               \
