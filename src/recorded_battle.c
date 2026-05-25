@@ -182,7 +182,7 @@ u8 RecordedBattle_GetBattlerAction(u32 actionType, enum BattlerId battler)
         ResetPaletteFadeControl();
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         SetMainCallback2(CB2_QuitRecordedBattle);
-        return B_ACTION_NONE;
+        return 0xFF;
     }
     else
     {
