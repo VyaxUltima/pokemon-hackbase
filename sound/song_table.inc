@@ -644,6 +644,8 @@ gSongTable::
 	song mus_revolver_theme, MUSIC_PLAYER_BGM, 0
 	song mus_fireburg, MUSIC_PLAYER_BGM, 0
 	song mus_awaiting_combat, MUSIC_PLAYER_BGM, 0
+	song mus_ff5_dawn_warriors, MUSIC_PLAYER_BGM, 0
+	song mus_3s_hugo, MUSIC_PLAYER_BGM, 0
 	song mus_yagami_team, MUSIC_PLAYER_BGM, 0
 
 	.align 2

@@ -4312,6 +4312,8 @@ static void DebugAction_DestroyFollowerNPC(u8 taskId)
     X(MUS_REVOLVER_THEME)           \
     X(MUS_FIREBURG)                 \
     X(MUS_AWAITING_COMBAT)          \
+    X(MUS_FF5_DAWN_WARRIORS)        \
+    X(MUS_3S_HUGO)                  \
     X(MUS_YAGAMI_TEAM) 
 
 #define SOUND_LIST_SE               \
