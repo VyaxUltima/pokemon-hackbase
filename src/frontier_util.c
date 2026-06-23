@@ -89,6 +89,7 @@ static void SaveRecordBattle(void);
 static void BufferFrontierTrainerName(void);
 static void ResetSketchedMoves(void);
 static void SetFacilityBrainObjectEvent(void);
+static void ResetLevel(void);
 static void ShowTowerResultsWindow(u8);
 static void ShowDomeResultsWindow(u8);
 static void ShowPalaceResultsWindow(u8);
@@ -723,6 +724,7 @@ static void (*const sFrontierUtilFuncs[])(void) =
     [FRONTIER_UTIL_FUNC_BUFFER_TRAINER_NAME]   = BufferFrontierTrainerName,
     [FRONTIER_UTIL_FUNC_RESET_SKETCH_MOVES]    = ResetSketchedMoves,
     [FRONTIER_UTIL_FUNC_SET_BRAIN_OBJECT]      = SetFacilityBrainObjectEvent,
+    [FRONTIER_UTIL_FUNC_RESTORE_LEVEL]         = ResetLevel,
 };
 
 static const struct WindowTemplate sFrontierResultsWindowTemplate =
@@ -974,10 +976,30 @@ static void SetSelectedPartyOrder(void)
 {
     s32 i;
 
+    // part of a rework of frontier lv50 mode, players can now bring mons above lv50 similar to Gen 4
+    s32 tempLevel = 50;
+    s32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+
     ClearSelectedPartyOrder();
     for (i = 0; i < gSpecialVar_0x8005; i++)
         gSelectedOrderFromParty[i] = gSaveBlock2Ptr->frontier.selectedPartyMons[i];
     ReducePlayerPartyToSelectedMons();
+
+    // largely copied functionality from RestoreHeldItems()
+    // it retrieves the party properly so fuck it lmao
+    for (i = 0; i < MAX_FRONTIER_PARTY_SIZE; i++)
+    {
+        if (gSaveBlock2Ptr->frontier.selectedPartyMons[i] != 0)
+        {
+            // if the mon is above lv50, set it to lv50 here
+            // current issue: mon will be level 50 after battles end due to recalculating stats. need to remember old state somehow. maybe ResetSketchedMoves()
+            if (lvlMode == FRONTIER_LVL_50 && GetMonData(GetSavedPlayerPartyMon(gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1), MON_DATA_LEVEL) > FRONTIER_MAX_LEVEL_50) {
+                enum Species species = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES); //need this to reference exp table
+                SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][tempLevel]);
+                CalculateMonStats(&gParties[B_TRAINER_PLAYER][i]);
+            }
+        }
+    }
 }
 
 static void DoSoftReset_(void)
@@ -2051,8 +2073,9 @@ static void AppendIfValid(enum Species species, u16 heldItem, u16 hp, enum Front
         return;
     if (gSpeciesInfo[species].isFrontierBanned)
         return;
-    if (lvlMode == FRONTIER_LVL_50 && monLevel > FRONTIER_MAX_LEVEL_50)
-        return;
+    // reworked this so level 51+ mons can participate in level 50 mode, thus this is not needed
+    //if (lvlMode == FRONTIER_LVL_50 && monLevel > FRONTIER_MAX_LEVEL_50)
+    //    return;
 
     for (i = 0; i < *count && speciesArray[i] != species; i++)
         ;
@@ -2286,6 +2309,8 @@ static void BufferFrontierTrainerName(void)
     }
 }
 
+// Goes unused here, SavePlayerPartyMon() messes with the Level adjustment code for ResetLevel()
+// This only matters if Smeargle's around, and it isn't here
 static void ResetSketchedMoves(void)
 {
     u8 i, j, k;
@@ -2314,6 +2339,27 @@ static void ResetSketchedMoves(void)
 static void SetFacilityBrainObjectEvent(void)
 {
     SetFrontierBrainObjEventGfx(VarGet(VAR_FRONTIER_FACILITY));
+}
+
+static void ResetLevel(void)
+{
+    u8 i;
+    s32 originalLevel;
+    s32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+
+    for (i = 0; i < MAX_FRONTIER_PARTY_SIZE; i++)
+    {
+        originalLevel = GetMonData(GetSavedPlayerPartyMon(gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1), MON_DATA_LEVEL);
+        if (gSaveBlock2Ptr->frontier.selectedPartyMons[i] != 0)
+        {
+            // if the Pokemon's original level was above 50 after doing a Level 50 challenge, restore that here
+            if (lvlMode == FRONTIER_LVL_50 && originalLevel > FRONTIER_MAX_LEVEL_50) {
+                enum Species species = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES); //need this to reference exp table
+                SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][originalLevel]);
+                CalculateMonStats(&gParties[B_TRAINER_PLAYER][i]);
+            }
+        }
+    }
 }
 
 // Battle Frontier Ranking Hall records.

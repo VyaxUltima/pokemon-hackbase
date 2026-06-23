@@ -157,3 +157,9 @@
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SET_BRAIN_OBJECT
 	special CallFrontierUtilFunc
 	.endm
+
+	@ If the player's Pokemon were adjusted down to Level 50, restore their original level
+	.macro frontier_restorelevel
+	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_RESTORE_LEVEL
+	special CallFrontierUtilFunc
+	.endm

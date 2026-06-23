@@ -302,7 +302,6 @@ BattleFrontier_BattleTowerBattleRoom_EventScript_DoTowerBattle::
 	goto_if_eq VAR_0x8004, FRONTIER_MODE_LINK_MULTIS, BattleFrontier_BattleTowerBattleRoom_EventScript_EndTowerBattle
 	frontier_restorehelditems
 	special HealPlayerParty
-	frontier_resetsketch
 BattleFrontier_BattleTowerBattleRoom_EventScript_EndTowerBattle::
 	tower_setinterviewdata
 	frontier_get FRONTIER_DATA_BATTLE_OUTCOME
@@ -402,6 +401,7 @@ BattleFrontier_BattleTowerBattleRoom_Movement_AnabelEnter:
 	step_end
 
 BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobby::
+	frontier_restorelevel
 	copyvar VAR_RESULT, VAR_FRONTIER_BATTLE_MODE
 	goto_if_eq VAR_RESULT, FRONTIER_MODE_DOUBLES, BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobbyDoubles
 	goto_if_eq VAR_RESULT, FRONTIER_MODE_MULTIS, BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobbyMultis

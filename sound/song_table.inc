@@ -646,6 +646,7 @@ gSongTable::
 	song mus_awaiting_combat, MUSIC_PLAYER_BGM, 0
 	song mus_ff5_dawn_warriors, MUSIC_PLAYER_BGM, 0
 	song mus_3s_hugo, MUSIC_PLAYER_BGM, 0
+	song mus_bw_trainer, MUSIC_PLAYER_BGM, 0
 	song mus_yagami_team, MUSIC_PLAYER_BGM, 0
 
 	.align 2
