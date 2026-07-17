@@ -22,18 +22,18 @@ voice_group custom_drumset_1, 0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_directsound 62, 84, DirectSoundWaveData_unused_sc55_tom, 255, 204, 77, 204
 	voice_directsound 63, 64, DirectSoundWaveData_sc88pro_taiko, 255, 0, 255, 0
-	voice_directsound_no_resample 60, 0, DirectSoundWaveData_roland_r8_guiro, 255, 0, 193, 153
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_roland_r8_guiro, 255, 0, 255, 0
 	voice_directsound_no_resample 70, 49, DirectSoundWaveData_unknown_bell, 255, 165, 103, 231
 	voice_directsound_no_resample 32, 34, DirectSoundWaveData_sc88pro_tambourine, 255, 127, 77, 204
 	voice_directsound_no_resample 60, 14, DirectSoundWaveData_trinity_cymbal_crash, 255, 235, 0, 165
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+    voice_directsound_no_resample 33, 89, DirectSoundWaveData_sc88_chinese_cymbal, 255, 0, 255, 0
 	voice_directsound_no_resample 30, 54, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 255, 246, 0, 216
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_directsound_no_resample 30, 54, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 255, 246, 0, 216
 	voice_directsound_no_resample 30, 64, DirectSoundWaveData_sc88pro_orchestra_cymbal_crash, 8, 0, 255, 216
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_directsound_no_resample 72, 104, DirectSoundWaveData_sc88pro_mute_high_conga, 255, 0, 255, 0
-	voice_directsound_no_resample 60, 0, DirectSoundWaveData_roland_r8_guiro, 255, 0, 193, 153
+	voice_directsound_no_resample 60, 0, DirectSoundWaveData_roland_r8_guiro, 255, 0, 255, 0
 	voice_directsound_no_resample 72, 94, DirectSoundWaveData_sc88pro_open_low_conga, 255, 0, 255, 0
 	voice_directsound_no_resample 64, 64, DirectSoundWaveData_drum_and_percussion_kick, 255, 0, 255, 0
 	voice_directsound_no_resample 64, 64, DirectSoundWaveData_sd90_solo_snare, 255, 180, 175, 228

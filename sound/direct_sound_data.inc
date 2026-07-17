@@ -391,6 +391,10 @@ DirectSoundWaveData_yamaha_sy22_dist_guitar::
 	.incbin "sound/direct_sound_samples/yamaha_sy22_dist_guitar.bin"
 
 	.align 2
+DirectSoundWaveData_sc88_chinese_cymbal::
+	.incbin "sound/direct_sound_samples/sc88_chinese_cymbal.bin"
+
+	.align 2
 DirectSoundWaveData_sc88_overdriven_guitar::
 	.incbin "sound/direct_sound_samples/sc88_overdriven_guitar.bin"
 
