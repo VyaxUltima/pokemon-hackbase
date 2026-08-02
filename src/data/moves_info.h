@@ -439,7 +439,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "Strikes the foe with a gust\n"
             "of wind whipped up by wings."),
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_PLEDGE,
         .power = 40,
         .type = B_UPDATED_MOVE_TYPES >= GEN_2 ? TYPE_FLYING : TYPE_NORMAL,
         .accuracy = 100,
@@ -4964,7 +4964,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         #else
             "gust. May cause freezing."),
         #endif
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_PLEDGE,
         .power = 40,
         .type = TYPE_ICE,
         .accuracy = 100,
@@ -4972,6 +4972,10 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .target = TARGET_BOTH,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
+        .argument.pledge = { // reminder: both combo moves need EFFECT_PLEDGE!
+            .comboMove = MOVE_GUST,
+            .resultMove = MOVE_BLIZZARD,
+        },
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_FREEZE_OR_FROSTBITE,
             .chance = 10,

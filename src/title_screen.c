@@ -657,7 +657,7 @@ void CB2_InitTitleScreen(void)
                                     | DISPCNT_OBJ_ON
                                     | DISPCNT_WIN0_ON
                                     | DISPCNT_OBJWIN_ON);
-        m4aSongNumStart(MUS_TITLE);
+        m4aSongNumStart(MUS_FE9_WITH_US);
         gMain.state = 5;
         break;
     case 5:
@@ -719,7 +719,9 @@ static void Task_TitleScreenPhase1(u8 taskId)
         spriteId = CreateSprite(&sVersionBannerRightSpriteTemplate, VERSION_BANNER_RIGHT_X, VERSION_BANNER_Y, 0);
         gSprites[spriteId].sParentTaskId = taskId;
 
-        gTasks[taskId].tCounter = 144;
+        // with MUS_FE9_WITH_US as the title theme, tCounter should be 92 to line up the graphics with the music.
+        // everything will likely stay the same timing-wise, so this should be fine?
+        gTasks[taskId].tCounter = 92;
         gTasks[taskId].func = Task_TitleScreenPhase2;
     }
 }
