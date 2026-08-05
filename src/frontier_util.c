@@ -976,7 +976,8 @@ static void SetSelectedPartyOrder(void)
 {
     s32 i;
 
-    // part of a rework of frontier lv50 mode, players can now bring mons above lv50 similar to Gen 4
+    // As part of a rework of Frontier Lv50 mode, players can now bring mons above Lv50 similar to Gen 4.
+    // Their level is temporarily adjusted down to 50 while participating.
     s32 tempLevel = 50;
     s32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
 
@@ -985,16 +986,12 @@ static void SetSelectedPartyOrder(void)
         gSelectedOrderFromParty[i] = gSaveBlock2Ptr->frontier.selectedPartyMons[i];
     ReducePlayerPartyToSelectedMons();
 
-    // largely copied functionality from RestoreHeldItems()
-    // it retrieves the party properly so fuck it lmao
     for (i = 0; i < MAX_FRONTIER_PARTY_SIZE; i++)
     {
         if (gSaveBlock2Ptr->frontier.selectedPartyMons[i] != 0)
         {
-            // if the mon is above lv50, set it to lv50 here
-            // current issue: mon will be level 50 after battles end due to recalculating stats. need to remember old state somehow. maybe ResetSketchedMoves()
             if (lvlMode == FRONTIER_LVL_50 && GetMonData(GetSavedPlayerPartyMon(gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1), MON_DATA_LEVEL) > FRONTIER_MAX_LEVEL_50) {
-                enum Species species = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES); //need this to reference exp table
+                enum Species species = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES);
                 SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][tempLevel]);
                 CalculateMonStats(&gParties[B_TRAINER_PLAYER][i]);
             }
@@ -2073,7 +2070,7 @@ static void AppendIfValid(enum Species species, u16 heldItem, u16 hp, enum Front
         return;
     if (gSpeciesInfo[species].isFrontierBanned)
         return;
-    // reworked this so level 51+ mons can participate in level 50 mode, thus this is not needed
+    // These two lines are no longer necessary, as Level 51+ mons are now permitted.
     //if (lvlMode == FRONTIER_LVL_50 && monLevel > FRONTIER_MAX_LEVEL_50)
     //    return;
 
@@ -2309,8 +2306,8 @@ static void BufferFrontierTrainerName(void)
     }
 }
 
-// Goes unused here, SavePlayerPartyMon() messes with the Level adjustment code for ResetLevel()
-// This only matters if Smeargle's around, and it isn't here
+// Unused with the Lv50 mode rework. Pike glitch aside, this only ever matters for Smeargle as nothing else can naturally learn Sketch.
+// Mons would be set to Level 50 after leaving the facility, which obviously is semi-destructive.
 static void ResetSketchedMoves(void)
 {
     u8 i, j, k;
@@ -2331,6 +2328,8 @@ static void ResetSketchedMoves(void)
                 if (k == MAX_MON_MOVES)
                     SetMonMoveSlot(&gParties[B_TRAINER_PLAYER][i], MOVE_SKETCH, j);
             }
+            // If you really want to integrate this function with the Lv50 rework, you will need to add level handling code here.
+            // Retrieving and setting the original level above this SavePlayerPartyMon() should work. I haven't tried and likely won't.
             SavePlayerPartyMon(gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1, &gParties[B_TRAINER_PLAYER][i]);
         }
     }
@@ -2352,9 +2351,9 @@ static void ResetLevel(void)
         originalLevel = GetMonData(GetSavedPlayerPartyMon(gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1), MON_DATA_LEVEL);
         if (gSaveBlock2Ptr->frontier.selectedPartyMons[i] != 0)
         {
-            // if the Pokemon's original level was above 50 after doing a Level 50 challenge, restore that here
+            // If the Pokemon's original level was above 50 after doing a Level 50 challenge, restore that here.
             if (lvlMode == FRONTIER_LVL_50 && originalLevel > FRONTIER_MAX_LEVEL_50) {
-                enum Species species = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES); //need this to reference exp table
+                enum Species species = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES);
                 SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][originalLevel]);
                 CalculateMonStats(&gParties[B_TRAINER_PLAYER][i]);
             }
