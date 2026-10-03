@@ -66,8 +66,8 @@ static const u8* const sTrainerSlides[DIFFICULTY_COUNT][TRAINER_PARTNER(PARTNER_
         // leaving this here as an example
         [TRAINER_ROXANNE_1] =
         {
-            //[TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("That's the way, Gallade! Go!{PAUSE_UNTIL_PRESS}"), // find the id for the slide to be used.
-            [TRAINER_SLIDE_LAST_SWITCHIN] = gText_ThatsTheWay, // You can use globals or COMPOUND_STRING to define text here.
+            //[TRAINER_SLIDE_OPPONENT_LAST_SWITCHIN] = COMPOUND_STRING("That's the way, Gallade! Go!{PAUSE_UNTIL_PRESS}"), // find the id for the slide to be used.
+            [TRAINER_SLIDE_OPPONENT_LAST_SWITCHIN] = gText_ThatsTheWay, // You can use globals or COMPOUND_STRING to define text here.
         }
     },
 };
