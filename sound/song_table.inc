@@ -650,6 +650,7 @@ gSongTable::
 	song mus_turks, MUSIC_PLAYER_BGM, 0
 	song mus_smt2_alice, MUSIC_PLAYER_BGM, 0
 	song mus_fe9_with_us, MUSIC_PLAYER_BGM, 0
+	song mus_first_class_farewell, MUSIC_PLAYER_BGM, 0
 	song mus_yagami_team, MUSIC_PLAYER_BGM, 0
 
 	.align 2

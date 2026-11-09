@@ -582,7 +582,8 @@
 #define MUS_TURKS                   641
 #define MUS_SMT2_ALICE              642
 #define MUS_FE9_WITH_US             643
-#define MUS_YAGAMI_TEAM             644
+#define MUS_FIRST_CLASS_FAREWELL    644
+#define MUS_YAGAMI_TEAM             645
 #define END_MUS_EXT                 MUS_YAGAMI_TEAM
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
